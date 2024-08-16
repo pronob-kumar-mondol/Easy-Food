@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="tv_home_style">
+        <item name="android:layout_width">@dimen/_200sdp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/myfont</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/g_black</item>
+        <item name="android:layout_marginTop">@dimen/_10sdp</item>
+    </style>
+</resources>

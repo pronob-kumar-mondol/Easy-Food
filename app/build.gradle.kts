@@ -54,4 +54,11 @@ dependencies {
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    //SSP-SDP for Screen Size Ratio Helping
+    implementation ("com.intuit.ssp:ssp-android:1.1.1")
+    implementation ("com.intuit.sdp:sdp-android:1.1.1")
+
+    //Koral-For Gif
+    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.29")
 }
