@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.easyfood.data.CatagoryList
-import com.example.easyfood.data.CatagoryMeals
+import com.example.easyfood.data.PopularMeals
 import com.example.easyfood.databinding.PopularItemsBinding
 
-class MostPopularItemAdapter(private var mealList:List<CatagoryMeals>) :RecyclerView.Adapter<MostPopularItemAdapter.PopularItemViewHolder>() {
+class MostPopularItemAdapter(private var mealList:List<PopularMeals>) :RecyclerView.Adapter<MostPopularItemAdapter.PopularItemViewHolder>() {
 
-    lateinit var onItemClick:((CatagoryMeals)->Unit)
+    lateinit var onItemClick:((PopularMeals)->Unit)
 
     inner class PopularItemViewHolder(val binding: PopularItemsBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -33,7 +32,7 @@ class MostPopularItemAdapter(private var mealList:List<CatagoryMeals>) :Recycler
         }
     }
 
-    fun setMeals(mealslist:List<CatagoryMeals>){
+    fun setMeals(mealslist:List<PopularMeals>){
         this.mealList=mealslist
         notifyDataSetChanged()
     }

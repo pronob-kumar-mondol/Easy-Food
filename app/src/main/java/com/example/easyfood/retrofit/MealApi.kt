@@ -1,7 +1,7 @@
 package com.example.easyfood.retrofit
 
-import com.example.easyfood.data.CatagoryList
-import com.example.easyfood.data.Meal
+import com.example.easyfood.data.CatagoryMealList
+import com.example.easyfood.data.PopularMealsList
 import com.example.easyfood.data.MealList
 import retrofit2.Call
 import retrofit2.http.GET
@@ -16,5 +16,8 @@ interface MealApi {
     fun getMealDetails(@Query("i") id:String):Call<MealList>
 
     @GET("filter.php?")
-    fun getPopularItems(@Query("c") catagoryName:String):Call<CatagoryList>
+    fun getPopularItems(@Query("c") catagoryName:String):Call<PopularMealsList>
+
+    @GET("categories.php")
+    fun getCatagoryMeal():Call<CatagoryMealList>
 }
