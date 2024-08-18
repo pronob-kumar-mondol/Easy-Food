@@ -9,6 +9,7 @@ import com.example.easyfood.databinding.CatagoryMealsItemBinding
 
 class CatagoryMealAdapter(private var catagoryMeals:List<Category>):RecyclerView.Adapter<CatagoryMealAdapter.CatagoryMealViewHolder>() {
 
+    lateinit var onitemClick:((Category)->Unit)
     inner class CatagoryMealViewHolder(val binding: CatagoryMealsItemBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
@@ -28,6 +29,10 @@ class CatagoryMealAdapter(private var catagoryMeals:List<Category>):RecyclerView
             .into(holder.binding.imgMealCatagory)
 
         holder.binding.tvMealCatagory.text=catagoryMeals[position].strCategory
+
+        holder.itemView.setOnClickListener {
+            onitemClick.invoke(catagoryMeals[position])
+        }
 
     }
 

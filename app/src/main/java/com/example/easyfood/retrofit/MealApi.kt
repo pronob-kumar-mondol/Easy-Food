@@ -3,6 +3,7 @@ package com.example.easyfood.retrofit
 import com.example.easyfood.data.CatagoryMealList
 import com.example.easyfood.data.PopularMealsList
 import com.example.easyfood.data.MealList
+import com.example.easyfood.data.MealsByCatagoryList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -20,4 +21,7 @@ interface MealApi {
 
     @GET("categories.php")
     fun getCatagoryMeal():Call<CatagoryMealList>
+
+    @GET("filter.php")
+    fun getCatagoryMealListByName(@Query("c") catagoryMealName:String):Call<MealsByCatagoryList>
 }
