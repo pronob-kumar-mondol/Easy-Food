@@ -11,11 +11,14 @@ import com.example.easyfood.data.PopularMeals
 import com.example.easyfood.data.Meal
 import com.example.easyfood.data.MealList
 import com.example.easyfood.retrofit.RetrofitInstance
+import com.example.easyfood.roomDB.MealDatabase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel:ViewModel() {
+class HomeViewModel(
+    private val mealDatabase: MealDatabase
+):ViewModel() {
 
     private val _randomMealLiveData = MutableLiveData<Meal?>()
     val randomMealLiveData: LiveData<Meal?> get() = _randomMealLiveData
@@ -25,6 +28,8 @@ class HomeViewModel:ViewModel() {
 
     private val _catagoriesMealLiveData=MutableLiveData<List<Category>>()
     val catagoriesMealLiveData: LiveData<List<Category>?> get() = _catagoriesMealLiveData
+
+    val favouriteMealsLiveData=mealDatabase.mealDao().getAllMeals()
 
 
     fun getRandomMeal(){

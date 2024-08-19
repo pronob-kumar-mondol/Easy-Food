@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.easyfood.activity.CatagoryMealsActivity
+import com.example.easyfood.activity.MainActivity
 import com.example.easyfood.activity.MealActivity
 import com.example.easyfood.adapters.CatagoryMealAdapter
 import com.example.easyfood.adapters.MostPopularItemAdapter
@@ -26,7 +27,7 @@ class HomeFragment : Fragment() {
     private lateinit var randomMeal: Meal
     private lateinit var popularItemAdapter: MostPopularItemAdapter
     private lateinit var catagoryMealAdapter: CatagoryMealAdapter
-    private val homeViewModel:HomeViewModel by viewModels()
+    private lateinit var homeViewModel:HomeViewModel
 
     companion object{
         const val MEAL_ID="com.example.easyfood.fragment.idMeal"
@@ -39,6 +40,7 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         popularItemAdapter=MostPopularItemAdapter(listOf())
         catagoryMealAdapter=CatagoryMealAdapter(listOf())
+        homeViewModel=(activity as MainActivity).homeViewModel
     }
 
     override fun onCreateView(
