@@ -8,4 +8,5 @@
     <color name="accent">#F52C56</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="g_gray">#D1D1D1</color>
 </resources>
