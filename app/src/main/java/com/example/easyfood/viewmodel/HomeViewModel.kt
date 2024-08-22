@@ -87,19 +87,25 @@ class HomeViewModel(
         })
     }
 
-    fun searchMeals(searchQuery:String){
-        RetrofitInstance.api.searchMeals(searchQuery).enqueue(object :Callback<MealList>{
-            override fun onResponse(p0: Call<MealList>, p1: Response<MealList>) {
-                val mealList=p1.body()?.meals
-                if (p1.isSuccessful){
-                    _searchedMealLiveData.postValue(mealList)
-                }
-            }
+        fun searchMeals(searchQuery:String){
+            RetrofitInstance.api.searchMeals(searchQuery).enqueue(object :Callback<MealList>{
+                override fun onResponse(p0: Call<MealList>, p1: Response<MealList>) {
 
-            override fun onFailure(p0: Call<MealList>, p1: Throwable) {
-                Log.d("HomeFragment",p1.message.toString())
-            }
-        })
-    }
+                    if (p1.isSuccessful){
+                        val mealList=p1.body()?.meals ?: emptyList()
+
+                        val filteredMeals=mealList.filter {meal->
+                            meal.strInstructions!!.contains(searchQuery,ignoreCase = true)||
+                                    meal.strCategory!!.contains(searchQuery,ignoreCase = true)
+                        }
+                        _searchedMealLiveData.postValue(filteredMeals)
+                    }
+                }
+
+                override fun onFailure(p0: Call<MealList>, p1: Throwable) {
+                    Log.d("HomeFragment",p1.message.toString())
+                }
+            })
+        }
 
 }

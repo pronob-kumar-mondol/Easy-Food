@@ -2,6 +2,7 @@ package com.example.easyfood.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionScene.Transition.TransitionOnClick
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.easyfood.data.Category
@@ -33,6 +34,7 @@ class CatagoryMealAdapter(private var catagoryMeals:List<Category>):RecyclerView
         holder.itemView.setOnClickListener {
             onitemClick.invoke(catagoryMeals[position])
         }
+
 
     }
 

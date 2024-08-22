@@ -1,44 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/_140sdp"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/_5sdp"
-    app:cardUseCompatPadding="true"
-    android:elevation="@dimen/_5sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/img_meal_catagory_by_name"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_170sdp"
-            android:scaleType="centerCrop"
-            android:background="@color/accent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/tv_mealname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_15ssp"
-            android:textColor="@color/g_black"
-            android:fontFamily="@font/myfont"
-            android:text="Hello World"
-            android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="@+id/img_meal_catagory_by_name"
-            app:layout_constraintEnd_toEndOf="@id/img_meal_catagory_by_name"
-            app:layout_constraintTop_toBottomOf="@id/img_meal_catagory_by_name"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       app:cardCornerRadius="@dimen/_5sdp"
+       app:cardUseCompatPadding="true"
+       android:elevation="@dimen/_5sdp">
 
 
 
 
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/const_lay"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+           <ImageView
+               android:id="@+id/img_meal_catagory_by_name"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/_170sdp"
+               android:background="@color/white"
+               android:scaleType="centerCrop"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="1.0"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.cardview.widget.CardView>
+           <TextView
+               android:id="@+id/tv_mealname"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="@dimen/_15ssp"
+               android:textColor="@color/g_black"
+               android:fontFamily="@font/myfont"
+               android:text="Hello World"
+               android:textAlignment="center"
+               app:layout_constraintStart_toStartOf="@+id/img_meal_catagory_by_name"
+               app:layout_constraintEnd_toEndOf="@id/img_meal_catagory_by_name"
+               app:layout_constraintTop_toBottomOf="@id/img_meal_catagory_by_name"
+               app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+   </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_Favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:shapeAppearance="@style/Widget.Material3.PopupMenu.Overflow"
+        android:src="@drawable/favourite"
+        app:backgroundTint="@color/accent"
+        app:tint="@color/white"
+        app:fabSize="mini"
+        app:fabCustomSize="@dimen/_30sdp"
+        app:layout_anchor="@id/cardView"
+        app:layout_anchorGravity="top|end"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
