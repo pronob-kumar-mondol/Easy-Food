@@ -1,5 +1,6 @@
 package com.example.easyfood.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -9,6 +10,9 @@ import com.example.easyfood.R
 import com.example.easyfood.adapters.MealsByCatagoryNameAdapter
 import com.example.easyfood.databinding.ActivityCatagoryMealsBinding
 import com.example.easyfood.fragment.HomeFragment
+import com.example.easyfood.fragment.HomeFragment.Companion.MEAL_ID
+import com.example.easyfood.fragment.HomeFragment.Companion.MEAL_NAME
+import com.example.easyfood.fragment.HomeFragment.Companion.MEAL_THUMB
 import com.example.easyfood.viewmodel.MealsByCatagoryViewModel
 
 class CatagoryMealsActivity : AppCompatActivity() {
@@ -32,6 +36,18 @@ class CatagoryMealsActivity : AppCompatActivity() {
 
         prepareRecyclerView()
 
+        onCatagoryItemClick()
+
+    }
+
+    private fun onCatagoryItemClick() {
+        _adapter.onItemClick={meal->
+            val intent= Intent(applicationContext,MealActivity::class.java)
+            intent.putExtra(MEAL_ID,meal.idMeal)
+            intent.putExtra(MEAL_NAME,meal.strMeal)
+            intent.putExtra(MEAL_THUMB,meal.strMealThumb)
+            startActivity(intent)
+        }
     }
 
     private fun prepareRecyclerView() {

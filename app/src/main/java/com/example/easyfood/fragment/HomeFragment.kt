@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding=FragmentHomeBinding.inflate(inflater)
+        binding=FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -155,6 +155,8 @@ class HomeFragment : Fragment() {
                     .into(binding.imgRandomMeal)
 
                 this.randomMeal=meal
+
+                binding.tvMealName.text = meal.strMeal.toString()
             }
         }
     }

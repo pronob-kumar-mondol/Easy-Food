@@ -8,10 +8,36 @@
     app:cardElevation="@dimen/_3sdp"
     android:elevation="@dimen/_5sdp">
 
-    <ImageView
-        android:id="@+id/img_popular_meal_item"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_popular_meal_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradiant_overlay"/>
+
+        <TextView
+            android:id="@+id/tv_meal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meal Name"
+            android:fontFamily="@font/myfont"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_alignParentBottom="true"/>
+
+
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -101,12 +101,39 @@
                 app:layout_constraintEnd_toEndOf="@id/right_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tv_Like_to_eat">
 
-                <ImageView
-                    android:id="@+id/img_random_meal"
+
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:background="@color/teal_700"/>
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_random_meal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="@color/teal_700"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradiant_overlay"/>
+
+                    <TextView
+                        android:id="@+id/tv_meal_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Meal Name"
+                        android:fontFamily="@font/myfont"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_20ssp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"/>
+
+
+                </RelativeLayout>
 
 
             </androidx.cardview.widget.CardView>
@@ -121,7 +148,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_popular_item"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"
                 app:layout_constraintStart_toStartOf="@id/left_guideline"
                 app:layout_constraintEnd_toEndOf="@id/right_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tv_over_popular_item"/>
@@ -148,6 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
                     android:scrollbars="none" />
 
 

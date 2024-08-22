@@ -14,6 +14,8 @@ class FavouriteMealsAdapter :
 
     inner class FavouriteMealsAdapterViewHolder(val binding: MealItemBinding):RecyclerView.ViewHolder(binding.root)
 
+    lateinit var onItemClick:((meal:Meal)->Unit)
+
     private val diffUtil= object : DiffUtil.ItemCallback<Meal>(){
         override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
             return oldItem.idMeal==newItem.idMeal
@@ -44,8 +46,21 @@ class FavouriteMealsAdapter :
             .load(meal.strMealThumb)
             .into(holder.binding.imgMealCatagoryByName)
 
-        holder.binding.tvMealname.text=meal.strMeal
+        holder.binding.tvMealname.text= meal.strMeal?.let { truncateToTwoWords(it) }
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke(meal)
+        }
     }
 
+
+
+    private fun truncateToTwoWords(text: String): String {
+        val words = text.split(" ")
+        return if (words.size > 2) {
+            words.take(2).joinToString(" ")
+        } else {
+            text
+        }
+    }
 
 }

@@ -11,6 +11,8 @@ class MealsByCatagoryNameAdapter(private var mealList:List<MealsByCatagory>):
     RecyclerView.Adapter<MealsByCatagoryNameAdapter.NameViewHolder>() {
     inner class NameViewHolder(val binding:MealItemBinding):RecyclerView.ViewHolder(binding.root)
 
+    lateinit var onItemClick:((MealsByCatagory)->Unit)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NameViewHolder {
         return NameViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
@@ -25,6 +27,10 @@ class MealsByCatagoryNameAdapter(private var mealList:List<MealsByCatagory>):
             .into(holder.binding.imgMealCatagoryByName)
 
         holder.binding.tvMealname.text=truncateToTwoWords(mealList[position].strMeal)
+
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke(mealList[position])
+        }
     }
 
     fun setMealDetails(mealList:List<MealsByCatagory?>){

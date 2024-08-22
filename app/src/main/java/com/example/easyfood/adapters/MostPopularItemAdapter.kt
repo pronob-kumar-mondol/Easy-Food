@@ -27,6 +27,8 @@ class MostPopularItemAdapter(private var mealList:List<PopularMeals>) :RecyclerV
             .load(mealList[position].strMealThumb)
             .into(holder.binding.imgPopularMealItem)
 
+        holder.binding.tvMealName.text=mealList[position].strMeal
+
         holder.itemView.setOnClickListener {
             onItemClick.invoke(mealList[position])
         }
